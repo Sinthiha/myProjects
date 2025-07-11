@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Agencies Template</title>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+
+            border: none; 
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3; 
+        
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-section {
+            background: url('Hero-bg.png') no-repeat center center/cover;
+            color: #fff;
+            padding: 0; 
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: #1a76d8;
+            text-decoration: none;
+        }
+
+        .banner {
+            padding: 100px 20px; 
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #333;
+        }
+
+        .banner .button {
+            margin-top: 30px;
+        }
+
+        /* Action Section */
+        .action-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            background-color: #fff; 
+        }
+
+        .action-content {
+            flex: 1;
+            text-align: left;
+            padding-right: 50px;
+        }
+
+        .action-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .action-content p {
+            font-size: 1.1em;
+            color: #807d7d;
+            margin-bottom: 30px;
+        }
+
+        .action-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .action-image img {
+            max-width: 80%; 
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .action-section {
+                flex-direction: column;
+            }
+
+            .action-content {
+                padding-right: 0;
+                padding-bottom: 40px;
+                text-align: center;
+            }
+
+            .action-image img {
+                max-width: 100%;
+            }
+        }
+
+
+        /* Productive Users Section */
+        .productive-users-section {
+            background-color: #e9ecef; 
+            padding: 80px 20px;
+            border-radius: 100px;
+            display: flex;
+            text-align: center;
+        }
+
+        .productive-users-section h2 {
+            font-size: 2.1em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            
+        }
+
+        .stat-item {
+            flex-basis: calc(100px); 
+            min-width: 250px; 
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 4em;
+            font-weight: 700;
+            color: #007bff;
+           
+        }
+
+        .stat-item .label {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+
+       
+        /* Ready to Focus Better Styles */
+        .ready-to-focus-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #e9ecef; 
+        }
+
+        .ready-to-focus-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px; 
+            color: #333;
+        }
+
+        .ready-to-focus-section .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px; 
+        }
+
+        .ready-to-focus-section .button {
+            margin-bottom: 50px; 
+        }
+
+        .focus-image {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px; 
+        }
+
+        .focus-image img {
+            max-width: 80%; 
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+       
+            .focus-image img {
+                max-width: 100%;
+            }
+
+
+
+
+        /* Let's Get In Touch Section */
+        .contact-section {
+            background-color: #f8f9fa; 
+            padding: 80px 20px;
+            display: flex;
+            align-items: flex-start; 
+            justify-content: center;
+        }
+
+        .contact-left {
+            flex: 1;
+            text-align: left;
+            padding-right: 50px;
+        }
+
+        .contact-left h2 {
+            font-size: 3em;
+            color: #333;
+        }
+
+        .contact-right {
+            flex: 1;
+            max-width: 500px; 
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: 'Inter', sans-serif; 
+        }
+
+        .contact-form textarea {
+            resize: vertical; 
+            min-height: 120px;
+        }
+
+        .contact-form .button {
+            width: 100%; 
+            padding: 15px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+            }
+
+            .contact-left {
+                padding-right: 0;
+                padding-bottom: 40px;
+                text-align: center;
+            }
+
+            .contact-right {
+                width: 100%;
+                max-width: none; 
+            }
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #343a40; 
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer .logo {
+            font-size: 2em;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: block; 
+        }
+
+        .footer p {
+            font-size: 0.9em;
+            color: #bbb;
+            margin-bottom: 25px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px; 
+           
+        }
+
+        .footer-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links li a:hover {
+            color: #007bff;
+        }
+
+        /* Users' Feedback Section */
+        .feedback-section {
+            background-color: #fff; 
+            padding: 80px 20px 80px;
+        }
+
+        .feedback-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feedback-section p.subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .feedback-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+        }
+
+        .feedback-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex-basis: calc(80px);
+            min-width: 300px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feedback-card .stars {
+            color: #ffc107; 
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .feedback-card .feedback-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feedback-card .feedback-text {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 25px;
+            flex-grow: 1; 
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px; 
+        }
+
+        .reviewer-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid #ddd;
+        }
+
+        .reviewer-details {
+            text-align: left;
+        }
+
+        .reviewer-details .name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .reviewer-details .date {
+            font-size: 0.85em;
+            color: #777;
+        }
+
+      .animated-button {
+    background: linear-gradient(135deg, #ff0901, #6ec2e4);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.animated-button:hover {
+    background: linear-gradient(135deg, #d35400, #f1c40f);
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    
+    <!-- Navbar Section & Banner Section -->
+    <section class="hero-section">
+        <nav class="navbar">
+            <a href="#" class="logo">LOGO</a>
+            <a href="#" class="button">Sign Up</a>
+        </nav>
+
+        <div class="banner">
+            <h1>Cool Dark UI Template for<br>Webflow Agencies!</h1>
+            <a href="#" class="button">Stay Focused</a>
+        </div>
+    </section>
+
+    <!-- Action Section -->
+    <section class="action-section container">
+        <div class="action-content">
+            <h2>See It in Action</h2>
+            <p>Explore the live preview and imagine your brand in this bold, new look.</p>
+            <a href="#" class="button">Launch Live Preview</a>
+        </div>
+        <div class="action-image">
+            <img src="wc-mini.png" alt="Webflow Conference Mockup">
+        </div>
+    </section>
+
+    <!--Productive Users Section -->
+    <section class="productive-users-section">
+        <div class="container">
+            <h2>Joined Thousands of Productive Users</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="number">50K</div>
+                    <div class="label">Active Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">2M+</div>
+                    <div class="label">Focus Sessions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">95%</div>
+                    <div class="label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  Users' Feedback Section -->
+    <section class="feedback-section">
+        <div class="container">
+            <h2>What our users say</h2>
+            <p class="subtitle">Hear from those who've experienced the difference.</p>
+            <div class="feedback-grid">
+                <div class="feedback-card">
+                    <div class="stars">★★★★★</div>
+                    <h3 class="feedback-title">Loved by Designers</h3>
+                    <p class="feedback-text">"This template instantly leveled up our presence! Studio Vertex"</p>
+                    <div class="reviewer-info">
+                        <img src="avatar.png" alt="Reviewer Image">
+                        <div class="reviewer-details">
+                            <div class="name">John Doe</div>
+                            <div class="date">July 1, 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-card">
+                    <div class="stars">★★★★★</div>
+                    <h3 class="feedback-title">Boosted Our Workflow</h3>
+                    <p class="feedback-text">"The clean design and intuitive structure made our development process so much smoother. Highly recommend!"</p>
+                    <div class="reviewer-info">
+                        <img src="avatar.png" alt="Reviewer Image">
+                        <div class="reviewer-details">
+                            <div class="name">Alice Smith</div>
+                            <div class="date">June 28, 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-card">
+                    <div class="stars">★★★★★</div>
+                    <h3 class="feedback-title">Fantastic Support</h3>
+                    <p class="feedback-text">"Beyond the excellent design, the support for this template was top-notch. Quick and helpful responses!"</p>
+                    <div class="reviewer-info">
+                        <img src="avatar.png" alt="Reviewer Image">
+                        <div class="reviewer-details">
+                            <div class="name">Emily White</div>
+                            <div class="date">June 25, 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready to Focus Better -->
+     <section class="ready-to-focus-section">
+        <div class="container">
+            <h2>Ready to focus better</h2>
+            <p class="subtitle">This template instantly leveled up our presence. - Studio Vertex</p>
+            <a href="#" class="button">Get Started Free</a> 
+            <div class="focus-image">
+                <img src="wc-big.png" alt="Webflow Conference Mockup">
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Let's Get In Touch Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-left">
+                <h2>Let's Get in Touch</h2>
+            </div>
+            <div class="contact-right">
+                <form class="contact-form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Full name" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+
+                    <button type="submit" class="button">Get In Touch</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">LOGO</a>
+            <p>Ready to elevate your online presence? Connect with us today to discuss your project and discover how we can bring your vision to life.</p>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </div>
+    </footer>
+
+   <div style="text-align: center; margin: 40px 0;">
+          <button class="animated-button">Button</button>  
+      </div>
+
+</body>
+</html>
